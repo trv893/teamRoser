@@ -10,7 +10,7 @@ describe("Manager", () => {
             expect(manager.name).toBe('Biff');
             expect(manager.id).toEqual(5);
             expect(manager.email).toBe("BifftheCliff@ropes.com");
-            expect(manager.role).toBe("manager");
+            expect(manager.role).toBe("Manager");
             expect(manager.officeNumber).toBe('101')
         })
     })
@@ -20,7 +20,7 @@ describe("Manager", () => {
             expect(manager.getName()).toBe('Biff');
             expect(manager.getId()).toEqual(5);
             expect(manager.getEmail()).toBe("BifftheCliff@ropes.com");
-            expect(manager.getRole()).toBe("manager");
+            expect(manager.getRole()).toBe("Manager");
             expect(manager.getOfficeNumber()).toBe('101');
         })
     })

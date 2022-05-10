@@ -10,7 +10,7 @@ describe("Engineer", () => {
             expect(engineer.name).toBe('Bob');
             expect(engineer.id).toEqual(3);
             expect(engineer.email).toBe("Bobbuildsbigbuiscuts@bakery.com");
-            expect(engineer.role).toBe("engineer");
+            expect(engineer.role).toBe("Engineer");
             expect(engineer.github).toBe('BigBob')
         })
     })
@@ -20,7 +20,7 @@ describe("Engineer", () => {
             expect(engineer.getName()).toBe('Bob');
             expect(engineer.getId()).toEqual(3);
             expect(engineer.getEmail()).toBe("Bobbuildsbigbuiscuts@bakery.com");
-            expect(engineer.getRole()).toBe("engineer");
+            expect(engineer.getRole()).toBe("Engineer");
             expect(engineer.getGithub()).toBe('BigBob');
         })
     })

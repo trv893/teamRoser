@@ -10,7 +10,7 @@ describe("Intern", () => {
             expect(intern.name).toBe('Sally');
             expect(intern.id).toEqual(4);
             expect(intern.email).toBe("sizzilinsally@suprise.com");
-            expect(intern.role).toBe("intern");
+            expect(intern.role).toBe("Intern");
             expect(intern.school).toBe('Scranton U')
         })
     })
@@ -20,7 +20,7 @@ describe("Intern", () => {
             expect(intern.getName()).toBe('Sally');
             expect(intern.getId()).toEqual(4);
             expect(intern.getEmail()).toBe("sizzilinsally@suprise.com");
-            expect(intern.getRole()).toBe("intern");
+            expect(intern.getRole()).toBe("Intern");
             expect(intern.getSchool()).toBe('Scranton U');
         })
     })
