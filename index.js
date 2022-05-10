@@ -1,7 +1,7 @@
 const Intern = require('./lib/intern');
-const Manager = require('./lib/manager');
+const Manager = require('./lib/managers');
 const Engineer = require('./lib/engineer');
-const generateHTML = require('./src/template.js');
+// const template = require('./src/template.js');
 
 const fs = require('fs');
 const inquirer = require('inquirer');
@@ -24,26 +24,26 @@ const questions = [
     },
     {
         type: "list",
-        message: "Employee Role",
-        name: "employeeRole",
+        message: "Employee's position?",
+        name: "role",
         choices: ["Manager", "Engineer", "Intern"],
     },
     {
         type: "input",
-        name: "gitUser",
-        message: "Provide employee's github username:",
+        name: "github",
+        message: "Employee's github username?",
         when: (answers) => {
-            if (answers.employeeRole === "Engineer") {
+            if (answers.role === "Engineer") {
                 return true;
             }
         }
     },
     {
         type: "input",
-        name: "schoolName",
-        message: "Provide employee's school name: ",
+        name: "getSchool",
+        message: "Employee's school name?",
         when: (answers) => {
-            if (answers.employeeRole === "Intern") {
+            if (answers.role === "Intern") {
                 return true;
             }
         }
@@ -51,33 +51,42 @@ const questions = [
     {
         type: "input",
         name: "officeNumber",
-        message: "Provide employee's Office Number: ",
+        message: "Employee's Office Number?",
         when: (answers) => {
-            if (answers.employeeRole === "Manager") {
+            if (answers.role === "Manager") {
                 return true;
             }
         }
     },
     {
-        type: "confirm",
-        name: "addEmp",
-        message: "Would like to add another employee? [Y/N] "
+        type: "list",
+        name: "addAnother",
+        message: "Would like to add another employee?",
+        choices: ["Yes", "No"]
     }
 
 ]
 
-async function employeePrompt() {
-    let empDetails; 
-    await inquirer.prompt(employeeQuestions)
+var employeeArray = []
+async function questionsPrompt() {
+    let employee; 
+    await inquirer.prompt(questions)
     .then((answers) => {
-        if(answers.employeeRole == 'engineer') {
-            empDetails = new Engineer(answers.empName, answers.empId, answers.empEmail, answers.gitUser); 
-        } else {
-            empDetails = new Intern(answers.empName, answers.empId, answers.empEmail, answers.schoolName); 
+        switch(answers.role) {
+            case 'Engineer':
+                employee = new Engineer(answers.name, answers.id, answers.email, answers.github);
+                employeeArray.push(employee);
+            case 'Manager':
+                employee = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+                employeeArray.push(employee);
+            case 'Intern':
+                employee = new Intern(answers.name, answers.id, answers.email, answers.getSchool);
+                employeeArray.push(employee);
+        }if(answers.addAnother == "Yes"){
+            questionsPrompt();
         }
-        teamArray.push(empDetails);
-        addEmployee = answers.addEmp;  
     });
+    console.log(employeeArray);
 }
 
-init();
+questionsPrompt();
