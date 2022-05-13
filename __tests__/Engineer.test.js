@@ -15,12 +15,24 @@ describe("Engineer", () => {
         })
     })
     describe("methods", () => {
-        it ("should return the name, id, email of the employee, and github user name when the getName, getID, getEmail, and getGithub methods are called", () => {
+        it ("should return the name of the employee when the getName method is called", () => {
             const engineer = new Engineer("Bob", 3, 'Bobbuildsbigbuiscuts@bakery.com', 'BigBob');
             expect(engineer.getName()).toBe('Bob');
+        })
+        it ("should return the ID of the employee when the getID method is called", () => {
+            const engineer = new Engineer("Bob", 3, 'Bobbuildsbigbuiscuts@bakery.com', 'BigBob');
             expect(engineer.getId()).toEqual(3);
+        })
+        it ("should return the Email of the employee when the getEmail method is called", () => {
+            const engineer = new Engineer("Bob", 3, 'Bobbuildsbigbuiscuts@bakery.com', 'BigBob');
             expect(engineer.getEmail()).toBe("Bobbuildsbigbuiscuts@bakery.com");
+        })
+        it ("should return the Role of the employee when the getRole method is called", () => {
+            const engineer = new Engineer("Bob", 3, 'Bobbuildsbigbuiscuts@bakery.com', 'BigBob');
             expect(engineer.getRole()).toBe("Engineer");
+        })
+        it ("should return the Github usn of the employee when the getGithub method is called", () => {
+            const engineer = new Engineer("Bob", 3, 'Bobbuildsbigbuiscuts@bakery.com', 'BigBob');
             expect(engineer.getGithub()).toBe('BigBob');
         })
     })

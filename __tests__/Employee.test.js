@@ -19,14 +19,23 @@ describe("Employ", () => {
         })
     })
     describe('methods', () =>{
-        it("should return the name, id and email of the employee when the getName, getID, and getEmail methods are called", ()=>{
+        it("should return the name of the employee when the getName method is called", ()=>{
             // ??? do i need instantiate a new instance of employee here ???
             const newEmployee = new Employee('Homer', 2, 'mrsimpson@springfield.com')
             const getName = newEmployee.getName();
-            const getID = newEmployee.getId();
-            const getEmail = newEmployee.getEmail();
             expect(getName).toBe('Homer');
+
+        })
+        it("should return the ID of the employee when the getIDe method is called", ()=>{
+            // ??? do i need instantiate a new instance of employee here ???
+            const newEmployee = new Employee('Homer', 2, 'mrsimpson@springfield.com')
+            const getID = newEmployee.getId();
             expect(getID).toEqual(2);
+        })
+        it("should return the Email of the employee when the getEmail method is called", ()=>{
+            // ??? do i need instantiate a new instance of employee here ???
+            const newEmployee = new Employee('Homer', 2, 'mrsimpson@springfield.com')
+            const getEmail = newEmployee.getEmail();
             expect(getEmail).toBe("mrsimpson@springfield.com")
         })
     })

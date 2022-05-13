@@ -66,6 +66,10 @@ const questions = [
     }
 
 ]
+function genHtml(employeeArray){
+    
+
+}
 
 var employeeArray = []
 async function questionsPrompt() {
@@ -86,7 +90,11 @@ async function questionsPrompt() {
             questionsPrompt();
         }
     });
-    console.log(employeeArray);
+    genHtml(employeeArray);
+    console.log("You may now view your team in the newly created html file");
 }
 
+
+
 questionsPrompt();
+

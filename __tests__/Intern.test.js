@@ -15,12 +15,24 @@ describe("Intern", () => {
         })
     })
     describe("methods", () => {
-        it ("should return the name, id, email of the employee, and school when the getName, getID, getEmail, and getSchool methods are called", () => {
+        it ("should return the name of the employee when the getName method is called", () => {
             const intern = new Intern("Sally", 4, 'sizzilinsally@suprise.com', 'Scranton U');
             expect(intern.getName()).toBe('Sally');
+        })
+        it ("should return the ID of the employee when the getID method is called", () => {
+            const intern = new Intern("Sally", 4, 'sizzilinsally@suprise.com', 'Scranton U');
             expect(intern.getId()).toEqual(4);
+        })
+        it ("should return the Email of the employee when the getEmail method is called", () => {
+            const intern = new Intern("Sally", 4, 'sizzilinsally@suprise.com', 'Scranton U');
             expect(intern.getEmail()).toBe("sizzilinsally@suprise.com");
+        })
+        it ("should return the Role of the employee when the getRole method is called", () => {
+            const intern = new Intern("Sally", 4, 'sizzilinsally@suprise.com', 'Scranton U');
             expect(intern.getRole()).toBe("Intern");
+        })
+        it ("should return the School of the employee when the getSchool method is called", () => {
+            const intern = new Intern("Sally", 4, 'sizzilinsally@suprise.com', 'Scranton U');
             expect(intern.getSchool()).toBe('Scranton U');
         })
     })
