@@ -30,10 +30,10 @@ function genHtml(employeeArray){
                         <p class="ps-2 ms-2 pt-2">ID: ${element.id} 2</p>
                     </div>
                     <div class="bg-white border border-dark border-opacity-10 mx-auto my-2" style="width: 90%;">
-                        <p class="ps-2 py-2 ms-2 overflow-auto">Email: <a href="${element.email}">${element.email}</a></p>
+                        <p class="ps-2 py-2 ms-2 overflow-auto">Email: <a href="mailto:${element.email}">${element.email}</a></p>
                     </div>
                     <div class="bg-white border border-dark border-opacity-10 mb-4 mx-auto" style="width: 90%;">
-                        <p class="ps-2  ms-2 pt-2 overflow-auto">Github: <a href="">${element.github}</a>${element.github}</p>
+                        <p class="ps-2  ms-2 pt-2 overflow-auto">Github: <a href="https://github.com/${element.github}">${element.github}</a></p>
                     </div>
                 </div>
                 </div>`;
@@ -54,7 +54,7 @@ function genHtml(employeeArray){
                         <p class="ps-2 ms-2 pt-2">ID: ${element.id}</p>
                     </div>
                     <div class="bg-white border border-dark border-opacity-10 mx-auto my-2" style="width: 90%;">
-                        <p class="ps-2 py-2 ms-2 overflow-auto">Email: <a href="${element.email}">${element.email}</a></p>
+                        <p class="ps-2 py-2 ms-2 overflow-auto">Email: <a href="mailto:${element.email}">${element.email}</a></p>
                     </div>
                     <div class="bg-white border border-dark border-opacity-10 mb-4 mx-auto" style="width: 90%;">
                         <p class="ps-2  ms-2 pt-2 overflow-auto">Office Number: <span>${element.officeNumber}</span></p>
@@ -79,7 +79,7 @@ function genHtml(employeeArray){
                         <p class="ps-2 ms-2 pt-2">ID: ${element.id}</p>
                     </div>
                     <div class="bg-white border border-dark border-opacity-10 mx-auto my-2" style="width: 90%;">
-                        <p class="ps-2 py-2 ms-2 overflow-auto">Email: <a href="${element.email}">${element.email}</a></p>
+                        <p class="ps-2 py-2 ms-2 overflow-auto">Email: <a href="mailto:${element.email}">${element.email}</a></p>
                     </div>
                     <div class="bg-white border border-dark border-opacity-10 mb-4 mx-auto" style="width: 90%;">
                         <p class="ps-2  ms-2 pt-2 overflow-auto">School: <span>${element.school}</span></p>

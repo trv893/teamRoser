@@ -6,7 +6,8 @@ const genHtml = require('./src/template.js');
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-const questions = [
+const questions = async(inputs = []) => {
+    const prompts = [
     {
         type: "input",
         message: "Employee Name: ",
@@ -59,20 +60,22 @@ const questions = [
         }
     },
     {
-        type: "list",
+        type: "confirm",
         name: "addAnother",
         message: "Would like to add another employee?",
-        choices: ["Yes", "No"]
+        default:true
     }
 
-]
-
-
-
-async function questionsPrompt() {
-    var employeeArray = [];
-    await inquirer.prompt(questions)
-    .then((answers) => {
+    ];
+    const { addAnother, ...answers } = await inquirer.prompt(prompts);
+    const newInputs = [...inputs, answers];
+    return addAnother ? questions(newInputs) : newInputs;
+};
+var employeeArray = [];
+const questionsPrompt = async () => {
+    
+    const answers = await questions();
+    answers.forEach(answers => {
         let role = answers.role;
         switch(role) {
             case 'Engineer':
@@ -81,19 +84,17 @@ async function questionsPrompt() {
                 return employeeArray.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
             case 'Intern':
                 return employeeArray.push(new Intern(answers.name, answers.id, answers.email, answers.getSchool));
-        }if(answers.addAnother == "Yes"){
-            questionsPrompt();
         }
     });
-    return (employeeArray);
+    console.log(employeeArray);
     genHtml(employeeArray);
     console.log("You may now view your team in the newly created html file");
 }
-// questionsPrompt();
+questionsPrompt();
 
-async function startGen() {
-    await questionsPrompt()
-    .then((answers) => genHtml(answers))
-}
+// async function startGen() {
+//     await questionsPrompt()
+//     .then((answers) => genHtml(answers))
+// }
 
-startGen();
+// startGen();
