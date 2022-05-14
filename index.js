@@ -1,7 +1,7 @@
 const Intern = require('./lib/intern');
 const Manager = require('./lib/managers');
 const Engineer = require('./lib/engineer');
-// const template = require('./src/template.js');
+const genHtml = require('./src/template.js');
 
 const fs = require('fs');
 const inquirer = require('inquirer');
@@ -66,35 +66,34 @@ const questions = [
     }
 
 ]
-function genHtml(employeeArray){
-    
 
-}
 
-var employeeArray = []
+
 async function questionsPrompt() {
-    let employee; 
+    var employeeArray = [];
     await inquirer.prompt(questions)
     .then((answers) => {
-        switch(answers.role) {
+        let role = answers.role;
+        switch(role) {
             case 'Engineer':
-                employee = new Engineer(answers.name, answers.id, answers.email, answers.github);
-                employeeArray.push(employee);
+                return employeeArray.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
             case 'Manager':
-                employee = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-                employeeArray.push(employee);
+                return employeeArray.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber));
             case 'Intern':
-                employee = new Intern(answers.name, answers.id, answers.email, answers.getSchool);
-                employeeArray.push(employee);
+                return employeeArray.push(new Intern(answers.name, answers.id, answers.email, answers.getSchool));
         }if(answers.addAnother == "Yes"){
             questionsPrompt();
         }
     });
+    return (employeeArray);
     genHtml(employeeArray);
     console.log("You may now view your team in the newly created html file");
 }
+// questionsPrompt();
 
+async function startGen() {
+    await questionsPrompt()
+    .then((answers) => genHtml(answers))
+}
 
-
-questionsPrompt();
-
+startGen();
