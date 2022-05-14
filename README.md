@@ -34,3 +34,5 @@ This project is licensed under the GNUGPLv3 -lets people do almost anything they
 
 If you have any questions about the repo, open an issue or contact me directly at trevorHilimire@gmail.com
 This project was created by Github user: [Trv893](https://github.com/trv893/)
+
+![Example](/Capture.JPG)
