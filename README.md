@@ -26,7 +26,6 @@ Run npm i to install the dependencies, then ~node index to initiate app. Answer 
 
 
 ## License
-License that explains which license the application is covered under:
 This project is licensed under the GNUGPLv3 -lets people do almost anything they want with your project, except distributing closed source versions license.
 
 
