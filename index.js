@@ -88,13 +88,7 @@ const questionsPrompt = async () => {
     });
     console.log(employeeArray);
     genHtml(employeeArray);
-    console.log("You may now view your team in the newly created html file");
+    console.log("You may now view your team in the newly created html file in the dist folder!");
 }
 questionsPrompt();
 
-// async function startGen() {
-//     await questionsPrompt()
-//     .then((answers) => genHtml(answers))
-// }
-
-// startGen();
